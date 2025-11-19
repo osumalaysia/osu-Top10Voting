@@ -2,17 +2,20 @@
   <v-row class="past">
     <v-col md="6" offset-md="3">
       <v-card v-if="currentUser">
-        <v-card-title>2020 Voting</v-card-title>
-        <v-card-subtitle>Vote for the German top 10 of 2020</v-card-subtitle>
+        <v-card-title>2025 Voting</v-card-title>
+        <v-card-subtitle>Vote for the Malaysia top 10 of 2025</v-card-subtitle>
 
         <v-card-text>
 
           <v-card>
             <v-card-text>
               <h3>Voting format</h3>
-              <p>This year's voting will only account for the German voters in the top 1000 of Germany. International votes will still be possible to have a comparison in the end, but will not count towards the final rankings.</p>
-              <p>The point distribution will be as follows: 7, 6, 5, 5, 4, 4, 3, 3, 2, 1</p>
-              <p>The point multiplier will apply as follows: 1 - 10 DE x5, 11 - 25 DE x4, 26 - 50 DE x3, 50 - 100 DE x2, > 101 DE x1</p>
+          <p>⁍ Players are given points from 1st - 10th accordingly like this: 10p 9p 8p 7p 6p 5p 4p 3p 2p 1p.</p>
+          <p>⁍ One point from the most & least popular voted placements are removed from every player.</p>
+          <p>ex: If Laphii gets 1-5-2-5-3-1-9-10-10-7-6, one each of the 1 point and 10 point votes are removed, leaving
+            5-2-5-3-1-9-10-7-6.</p>
+          <p>This is to enhance accuracy of the results and to discourage "boosting" votes.</p>
+          <p>⁍ Points are totalled up following this, and the Player with the most points will earn the top spot.</p>
             </v-card-text>
           </v-card>
 
@@ -29,7 +32,7 @@
                     <v-chip-group>
                       <v-chip small v-if="votingCounts" color="success">Voting counts</v-chip>
                       <v-chip small v-if="!votingCounts" color="amber">Voting will not count</v-chip>
-                      <v-chip small v-if="votingCounts" color="primary">Multiplier <b class="ml-1">x{{multiplier}}</b></v-chip>
+                <!--<v-chip small v-if="votingCounts" color="primary">Multiplier <b class="ml-1">x{{multiplier}}</b></v-chip> -->     
                     </v-chip-group>
                   </v-list-item-content>
                 </v-list-item>

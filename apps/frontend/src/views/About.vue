@@ -4,17 +4,15 @@
       <v-card>
         <v-img height="100px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
           <v-overlay class="align-end justify-start" absolute color="#000000" opacity="0.8">
-            <v-card-title>About the German voting</v-card-title>
+            <v-card-title>About the Malaysia voting</v-card-title>
           </v-overlay>
         </v-img>
 
         <v-card-subtitle class="pb-0">Short summary</v-card-subtitle>
         <v-card-text class="text--primary">
-          The German voting will be limited to German voters, as well as a top 1000 country limit. Everyone can vote, but in the end, the results will be calculated from people matching the criteria.
-          I'll let everyone vote because it will be interesting to compare the different opinions in the end.<br><br>
+          The Malaysia voting is open Everyone can vote
 
-          The website was created by hallowatcher.
-
+          The website was created by hallowatcher edited by Laphii.
           <v-divider class="mt-10"></v-divider>
           <v-timeline dense>
             <v-timeline-item fill-dot large color="red" class="font-weight-bold">
