@@ -44,7 +44,7 @@ export class AuthModule implements NestModule {
         async (accessToken, refreshToken, profileEmpty, cb) => {
           const apiUser: any = await this.getProfile(accessToken).toPromise();
 
-          // Fetch german leaderboard if user = hallowatcher
+          // Fetch malaysia leaderboard if user = me!
           if (apiUser.username === 'Sagisawa Arisu') {
             const choices = await this.choiceService.findAll();
 

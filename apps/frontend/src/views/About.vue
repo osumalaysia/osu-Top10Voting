@@ -12,7 +12,12 @@
         <v-card-text class="text--primary">
           The Malaysia voting is open Everyone can vote
 
-          The website was created by hallowatcher edited by Laphii.
+          The website was created by hallowatcher edited by Laphii.<br>
+          The voting is held yearly to determine the top 10 players in Malaysia.<br>
+          You can check out the original repository <a href="https://gitlab.com/hallowatcher/osu-voting-new" target="_blank">here</a> <br>
+          any anquiries can be directed to @_sagisawa on Discord 
+
+        </v-card-text>
           <v-divider class="mt-10"></v-divider>
           <v-timeline dense>
             <v-timeline-item fill-dot large color="red" class="font-weight-bold">
@@ -45,7 +50,7 @@
             </v-timeline-item>
             <v-timeline-item color="grey">
               <v-row>
-                <v-col sm="2"><b>28.02.21</b></v-col>
+                <v-col sm="2"><b>TBD</b></v-col>
                 <v-col>Video publishing (estimated)</v-col>
               </v-row>
             </v-timeline-item>
