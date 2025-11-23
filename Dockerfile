@@ -1,22 +1,21 @@
-# Node image
-FROM node:12.18.3-alpine
-
-# Set the working directory
+FROM node:12.18.3-alpine AS builder
+RUN npm i -g nx
 WORKDIR /app
 
-# Copy package.json
-COPY dist/apps/api/package.json /app
+COPY package.json yarn.lock ./
+RUN yarn install
 
-# Copy lockfile
-COPY dist/apps/api/yarn.lock /app
+COPY . .
+RUN npm run build:prod
 
-# Install dependencies
+
+
+FROM node:12.18.3-alpine
+WORKDIR /app
+
+COPY package.json yarn.lock ./
 RUN yarn install --prod --ignore-scripts
 
-# Copy dist
-COPY dist/ /app/dist/
+COPY --from=builder /app/dist dist
 
-# Expose port
-EXPOSE 3333
-
-CMD [ "yarn", "start:prod" ]
+CMD ["yarn", "start:prod"]
