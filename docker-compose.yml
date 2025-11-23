@@ -1,0 +1,26 @@
+services:
+  redis:
+    image: redis:alpine
+    restart: always
+    networks:
+      - redisnet
+
+  db:
+    image: mariadb:11
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - dbnet
+    environment:
+      MYSQL_DATABASE: osumalaysia
+      MYSQL_USER: laphii123
+      MYSQL_ROOT_PASSWORD: laphii123
+      MYSQL_PASSWORD: laphii123
+
+volumes:
+  db_data:
+
+networks:
+  dbnet:
+  redisnet:
