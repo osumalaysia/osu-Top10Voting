@@ -139,7 +139,7 @@
     }
 
     setMultiplierAndAbilityToVote() {
-      this.votingCounts = this.AccountDate.getTime() <= this.dateLimit.getTime();
+      this.votingCounts = this.AccountDate.getTime() >= this.dateLimit.getTime();
       if (this.votingCounts) {
           this.multiplier = 1;
         }
