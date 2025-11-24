@@ -28,7 +28,7 @@
                   </v-list-item-avatar>
 
                   <v-list-item-content>
-                    <span>Logged in as <b>{{ currentUser.account_createdAt }}</b></span>
+                    <span>Logged in as <b>{{ currentUser.username }}</b></span>
                     <v-chip-group>
                       <v-chip small v-if="votingCounts" color="success">Voting counts</v-chip>
                       <v-chip small v-if="!votingCounts" color="amber">Voting will not count</v-chip>
@@ -97,7 +97,6 @@
     votingCounts = false;
     multiplier = 0;
     dateLimit = new Date('2024-11-24T15:59:00+00:00');
-    AccountDate = new Date(this.currentUser.account_createdAt);
 
     // Votes
     first = null;
@@ -139,11 +138,13 @@
     }
 
     setMultiplierAndAbilityToVote() {
-      this.votingCounts = this.AccountDate <= this.dateLimit;
+      console.log(this.currentUser.account_createdAt.getTime(), this.dateLimit.getTime()) 
+      console.log(this.currentUser.account_createdAt.getTime() <= this.dateLimit.getTime())
+     this.votingCounts = this.currentUser.account_createdAt.getTime() <= this.dateLimit.getTime();
       if (this.votingCounts) {
-        this.multiplier = 1;
+          this.multiplier = 1;
+        }
       }
-    }
     
 
     selectChoice(userId: number, voteRank: number) {
