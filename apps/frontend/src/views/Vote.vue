@@ -10,8 +10,8 @@
           <v-card>
             <v-card-text>
               <h3>Voting format</h3>
-              <p>⁍ Players are given points from 1st - 10th accordingly like this: 10p 9p 8p 7p 6p 5p 4p 3p 2p 1p.</p>
-              <p>⁍ One point from the most & least popular voted placements are removed from every player.</p>
+              <p>Players are given points from 1st - 10th accordingly like this: 10p 9p 8p 7p 6p 5p 4p 3p 2p 1p.</p>
+              <p>One point from the most & least popular voted placements are removed from every player.</p>
               <p>ex: If Laphii gets 1-5-2-5-3-1-9-10-10-7-6, one each of the 1 point and 10 point votes are removed,
                 leaving
                 5-2-5-3-1-9-10-7-6.</p>

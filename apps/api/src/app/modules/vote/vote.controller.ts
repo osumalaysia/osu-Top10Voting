@@ -10,7 +10,7 @@ import { AuthenticatedRequest } from '../auth/authenticated-request';
 
 @Controller('/votes')
 export class VoteController {
-  year = 2020;
+  year = 2025;
 
   constructor(
     private choiceService: ChoiceService,
