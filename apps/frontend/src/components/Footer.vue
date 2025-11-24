@@ -11,16 +11,15 @@
         </v-btn>
 
         <v-btn class="mx-4 white--text" icon href="https://discord.gg/bKWwf8j" target="_blank">
-          <v-icon size="24px">mdi-alpha-d-circle</v-icon>
+          <v-img src="../assets/dc.png" max-width="24px" max-height="24px" alt="Discord"></v-img>
         </v-btn>
 
         <v-btn class="mx-4 white--text" icon href="https://www.twitch.tv/osumalaysia" target="_blank">
           <v-icon size="24px">mdi-twitch</v-icon>
         </v-btn>
 
-        <v-btn class="mx-4 white--text" icon href="https://x.com/osumalaysia?t=A_UxvV7x9DvtfR1MW6M6ng&s=09"
-          target="_blank">
-          <v-icon size="24px">mdi-twitter</v-icon>
+        <v-btn class="mx-4 white--text" icon href="https://x.com/osumalaysia?t=A_UxvV7x9DvtfR1MW6M6ng&s=09" target="_blank">
+          <v-img src="../assets/x.png" max-width="24px" max-height="24px" alt="X"></v-img>
         </v-btn>
       </v-card-text>
 
