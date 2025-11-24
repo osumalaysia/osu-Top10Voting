@@ -10,12 +10,14 @@
           <v-card>
             <v-card-text>
               <h3>Voting format</h3>
-          <p>⁍ Players are given points from 1st - 10th accordingly like this: 10p 9p 8p 7p 6p 5p 4p 3p 2p 1p.</p>
-          <p>⁍ One point from the most & least popular voted placements are removed from every player.</p>
-          <p>ex: If Laphii gets 1-5-2-5-3-1-9-10-10-7-6, one each of the 1 point and 10 point votes are removed, leaving
-            5-2-5-3-1-9-10-7-6.</p>
-          <p>This is to enhance accuracy of the results and to discourage "boosting" votes.</p>
-          <p>⁍ Points are totalled up following this, and the Player with the most points will earn the top spot.</p>
+              <p>⁍ Players are given points from 1st - 10th accordingly like this: 10p 9p 8p 7p 6p 5p 4p 3p 2p 1p.</p>
+              <p>⁍ One point from the most & least popular voted placements are removed from every player.</p>
+              <p>ex: If Laphii gets 1-5-2-5-3-1-9-10-10-7-6, one each of the 1 point and 10 point votes are removed,
+                leaving
+                5-2-5-3-1-9-10-7-6.</p>
+              <p>This is to enhance accuracy of the results and to discourage "boosting" votes.</p>
+              <p>⁍ Points are totalled up following this, and the Player with the most points will earn the top spot.
+              </p>
             </v-card-text>
           </v-card>
 
@@ -32,7 +34,7 @@
                     <v-chip-group>
                       <v-chip small v-if="votingCounts" color="success">Voting counts</v-chip>
                       <v-chip small v-if="!votingCounts" color="amber">Voting will not count</v-chip>
-                <!--<v-chip small v-if="votingCounts" color="primary">Multiplier <b class="ml-1">x{{multiplier}}</b></v-chip> -->     
+                      <!--<v-chip small v-if="votingCounts" color="primary">Multiplier <b class="ml-1">x{{multiplier}}</b></v-chip> -->
                     </v-chip-group>
                   </v-list-item-content>
                 </v-list-item>
@@ -44,13 +46,16 @@
 
 
               <div v-if="!loadingChoices && choices.length > 0">
-                <v-alert id="error" border="left" type="error" v-if="errorMessage">{{errorMessage}}</v-alert>
-                <v-alert id="success" border="left" type="success" v-if="submitted">Submitted successfully! If you submit again, it will replace your previous submission.</v-alert>
+                <v-alert id="error" border="left" type="error" v-if="errorMessage">{{ errorMessage }}</v-alert>
+                <v-alert id="success" border="left" type="success" v-if="submitted">Submitted successfully! If you
+                  submit again, it will replace your previous submission.</v-alert>
 
-                <ChoiceSelect v-for="index in 10" :key="index" :choices="choices" :selected-choice="getVote(index)" :field-for-rank="index" @select-choice="selectChoice($event, index)"></ChoiceSelect>
+                <ChoiceSelect v-for="index in 10" :key="index" :choices="choices" :selected-choice="getVote(index)"
+                  :field-for-rank="index" @select-choice="selectChoice($event, index)"></ChoiceSelect>
 
                 <div class="d-flex align-center justify-end">
-                  <span class="font-weight-bold grey--text mr-5" v-if="lastSaved">Last saved {{ lastSaved.fromNow() }}</span>
+                  <span class="font-weight-bold grey--text mr-5" v-if="lastSaved">Last saved {{ lastSaved.fromNow()
+                    }}</span>
                   <v-btn @click="submit" color="primary" :loading="submitting">Submit</v-btn>
                 </div>
               </div>
@@ -63,92 +68,96 @@
 </template>
 
 <script lang="ts">
-  import Component from 'vue-class-component';
-  import Vue from 'vue';
-  import * as moment from 'moment';
-  import { namespace } from 'vuex-class';
-  import ChoiceSelect from '../components/ChoiceSelect.vue';
+import Component from 'vue-class-component';
+import Vue from 'vue';
+import * as moment from 'moment';
+import { namespace } from 'vuex-class';
+import ChoiceSelect from '../components/ChoiceSelect.vue';
 
-  const auth = namespace('Auth');
-  const choice = namespace('Choice');
-  const vote = namespace('Vote');
+const auth = namespace('Auth');
+const choice = namespace('Choice');
+const vote = namespace('Vote');
 
-  @Component({
-    components: {
-      ChoiceSelect
-    }
-  })
-  export default class Vote extends Vue {
-    @auth.State currentUser!: any;
+@Component({
+  components: {
+    ChoiceSelect
+  }
+})
+export default class Vote extends Vue {
+  @auth.State currentUser!: any;
 
-    @choice.State loadingChoices: boolean;
-    @choice.State choices: any[];
-    @choice.Action getChoices!: () => void
+  @choice.State loadingChoices: boolean;
+  @choice.State choices: any[];
+  @choice.Action getChoices!: () => void
 
-    @vote.State errorMessage!: string;
-    @vote.State submitting!: boolean;
-    @vote.State submitted!: boolean;
-    @vote.State lastSaved!: moment.Moment;
-    @vote.Getter getVote!: (voteRank: number) => number
-    @vote.Action vote!: (payload: { voteRank: number, userId: number }) => void
-    @vote.Action submit!: () => void;
-    @vote.Action getPreviousVotes!: () => void;
+  @vote.State errorMessage!: string;
+  @vote.State submitting!: boolean;
+  @vote.State submitted!: boolean;
+  @vote.State lastSaved!: moment.Moment;
+  @vote.Getter getVote!: (voteRank: number) => number
+  @vote.Action vote!: (payload: { voteRank: number, userId: number }) => void
+  @vote.Action submit!: () => void;
+  @vote.Action getPreviousVotes!: () => void;
 
-    votingCounts = false;
-    multiplier = 0;
- 
-    // Votes
-    first = null;
-    second = null;
-    third = null;
-    fourth = null;
-    fifth = null;
-    sixth = null;
-    seventh = null;
-    eight = null;
-    ninth = null;
-    tenth = null;
+  votingCounts = false;
+  multiplier = 0;
+  dateLimit !: Date
+  accountDate !: Date
 
-    filteredChoices(slot: number) {
-      const votesArray = [this.first, this.second, this.third, this.fourth, this.fifth, this.sixth, this.seventh, this.eight, this.ninth, this.tenth].splice(slot, 1);
-      return this.choices.filter(e => votesArray.indexOf(e.id) === -1);
-    }
+  // Votes
+  first = null;
+  second = null;
+  third = null;
+  fourth = null;
+  fifth = null;
+  sixth = null;
+  seventh = null;
+  eight = null;
+  ninth = null;
+  tenth = null;
 
-    mounted() {
-      this.getChoices();
-      this.getPreviousVotes();
-      this.setMultiplierAndAbilityToVote();
+  filteredChoices(slot: number) {
+    const votesArray = [this.first, this.second, this.third, this.fourth, this.fifth, this.sixth, this.seventh, this.eight, this.ninth, this.tenth].splice(slot, 1);
+    return this.choices.filter(e => votesArray.indexOf(e.id) === -1);
+  }
 
-      this.$store.subscribe(action => {
-        if (action.type === 'Vote/setErrorMessage' && action.payload) {
-          // Scroll to error
-          setTimeout(() => {
-            this.$vuetify.goTo('#error', { offset: 100 });
-          }, 100);
-        }
+  mounted() {
+    this.accountDate = new Date(this.currentUser.account_createdAt);
+    this.dateLimit = new Date('2024-11-24T15:59:59.000Z');
 
-        if (action.type === 'Vote/setSubmitted' && action.payload) {
-          // Success
-          setTimeout(() => {
-            this.$vuetify.goTo('#success', { offset: 100 });
-          }, 100);
-        }
-      });
-    }
+    this.getChoices();
+    this.getPreviousVotes();
+    this.setMultiplierAndAbilityToVote();
 
-    dateLimit = new Date('2024-11-24T15:59:59.000Z');
-    accountDate = new Date(this.currentUser.account_createdAt);
-    setMultiplierAndAbilityToVote() {
-      console.log(this.dateLimit,this.accountDate)
-     this.votingCounts = this.accountDate.getTime() <= this.dateLimit.getTime();
-      if (this.votingCounts) {
-          this.multiplier = 1;
-        }
+    this.$store.subscribe(action => {
+      if (action.type === 'Vote/setErrorMessage' && action.payload) {
+        // Scroll to error
+        setTimeout(() => {
+          this.$vuetify.goTo('#error', { offset: 100 });
+        }, 100);
       }
-    
 
-    selectChoice(userId: number, voteRank: number) {
-      this.vote({ voteRank, userId });
+      if (action.type === 'Vote/setSubmitted' && action.payload) {
+        // Success
+        setTimeout(() => {
+          this.$vuetify.goTo('#success', { offset: 100 });
+        }, 100);
+      }
+    });
+  }
+
+
+  setMultiplierAndAbilityToVote() {
+
+    this.votingCounts = this.accountDate.getTime() <= this.dateLimit.getTime();
+    if (this.votingCounts) {
+      this.multiplier = 1;
     }
   }
+
+
+  selectChoice(userId: number, voteRank: number) {
+    this.vote({ voteRank, userId });
+  }
+}
 </script>
