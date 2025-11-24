@@ -17,7 +17,6 @@
           You can check out the original repository <a href="https://gitlab.com/hallowatcher/osu-voting-new" target="_blank">here</a> <br>
           any anquiries can be directed to @_sagisawa on Discord 
 
-        </v-card-text>
           <v-divider class="mt-10"></v-divider>
           <v-timeline dense>
             <v-timeline-item fill-dot large color="red" class="font-weight-bold">
@@ -32,19 +31,19 @@
 
             <v-timeline-item color="yellow">
               <v-row>
-                <v-col sm="2"><b>24.12.20</b></v-col>
+                <v-col sm="2"><b>2025.11.24</b></v-col>
                 <v-col>Voting opens</v-col>
               </v-row>
             </v-timeline-item>
             <v-timeline-item color="grey">
               <v-row>
-                <v-col sm="2"><b>24.01.21</b></v-col>
+                <v-col sm="2"><b>2025.12.22</b></v-col>
                 <v-col>Voting ends</v-col>
               </v-row>
             </v-timeline-item>
             <v-timeline-item color="grey">
               <v-row>
-                <v-col sm="2"><b>31.01.21</b></v-col>
+                <v-col sm="2"><b>2025.12.31</b></v-col>
                 <v-col>Video production starts</v-col>
               </v-row>
             </v-timeline-item>

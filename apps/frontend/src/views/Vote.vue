@@ -96,7 +96,7 @@
 
     votingCounts = false;
     multiplier = 0;
-    dateLimit: Date = new Date("2010-12-31T16:00:00Z");
+    dateLimit: Date = new Date("2024-11-24T15:59:00Z");
 
     // Votes
     first = null;
