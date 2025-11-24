@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <section>
-      <v-parallax src="../assets/bg.jpg" height="100vh" alt="BG" class="fill-height">
+      <v-parallax src="../assets/bg.jpg" height="800" alt="BG">
         <v-overlay absolute color="#000000" opacity="0.8">
           <div class="d-flex flex-column align-center justify-center">
             <h1 class="white--text mb-2 display-2 text-center text-md-left">

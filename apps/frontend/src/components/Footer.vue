@@ -2,7 +2,6 @@
   <v-footer app padless absolute>
     <v-card flat tile width="100%" class="lighten-1 text-center">
       <v-card-text>
-        <!-- Existing mdi-web button -->
         <v-btn class="mx-4 white--text" icon href="https://arisu.s-ul.eu/nySC9dQU" target="_blank">
           <v-icon size="24px">mdi-web</v-icon>
         </v-btn>
