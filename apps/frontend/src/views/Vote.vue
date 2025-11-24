@@ -28,7 +28,7 @@
                   </v-list-item-avatar>
 
                   <v-list-item-content>
-                    <span>Logged in as <b>{{ currentUser.username }}</b></span>
+                    <span>Logged in as <b>{{ currentUser.account_createdAt }}</b></span>
                     <v-chip-group>
                       <v-chip small v-if="votingCounts" color="success">Voting counts</v-chip>
                       <v-chip small v-if="!votingCounts" color="amber">Voting will not count</v-chip>
