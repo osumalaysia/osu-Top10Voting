@@ -96,7 +96,7 @@
 
     votingCounts = false;
     multiplier = 0;
-    dateLimit: Date = new Date("2024-11-24T15:59:00Z");
+    dateLimit: Date = new Date('2024-11-24T15:59:00+00:00');
 
     // Votes
     first = null;
@@ -138,7 +138,7 @@
     }
 
     setMultiplierAndAbilityToVote() {
-      this.votingCounts = new Date(this.currentUser.account_createdAt) >= this.dateLimit;
+      this.votingCounts = new Date(this.currentUser.account_createdAt) <= this.dateLimit;
       if (this.votingCounts) {
           this.multiplier = 1;
         }
