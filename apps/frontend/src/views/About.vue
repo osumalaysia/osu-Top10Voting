@@ -37,19 +37,19 @@
             </v-timeline-item>
             <v-timeline-item color="grey">
               <v-row>
-                <v-col sm="2"><b>2025.12.22</b></v-col>
+                <v-col sm="2"><b>2026.01.02</b></v-col>
                 <v-col>Voting ends</v-col>
               </v-row>
             </v-timeline-item>
             <v-timeline-item color="grey">
               <v-row>
-                <v-col sm="2"><b>2025.12.31</b></v-col>
+                <v-col sm="2"><b>Progressing...</b></v-col>
                 <v-col>Video production starts</v-col>
               </v-row>
             </v-timeline-item>
             <v-timeline-item color="grey">
               <v-row>
-                <v-col sm="2"><b>TBD</b></v-col>
+                <v-col sm="2"><b>Coming Soon</b></v-col>
                 <v-col>Video publishing (estimated)</v-col>
               </v-row>
             </v-timeline-item>
