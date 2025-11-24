@@ -139,11 +139,11 @@
     }
 
     setMultiplierAndAbilityToVote() {
-      this.votingCounts = this.AccountDate.getTime() >= this.dateLimit.getTime();
+      this.votingCounts = this.AccountDate <= this.dateLimit;
       if (this.votingCounts) {
-          this.multiplier = 1;
-        }
+        this.multiplier = 1;
       }
+    }
     
 
     selectChoice(userId: number, voteRank: number) {
