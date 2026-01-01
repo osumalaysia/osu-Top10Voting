@@ -56,7 +56,7 @@
                 <div class="d-flex align-center justify-end">
                   <span class="font-weight-bold grey--text mr-5" v-if="lastSaved">Last saved {{ lastSaved.fromNow()
                     }}</span>
-                  <v-btn @click="submit" color="primary" :loading="submitting">Submit</v-btn>
+             <!--    <v-btn @click="submit" color="primary" :loading="submitting">Submit</v-btn> -->
                 </div>
               </div>
             </v-card-text>
